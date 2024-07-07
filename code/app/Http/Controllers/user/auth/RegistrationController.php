@@ -35,5 +35,6 @@ class RegistrationController extends Controller
         Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')]);
 
         return view('user.dashboard');
+
     }
 }
