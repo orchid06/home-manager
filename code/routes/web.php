@@ -13,3 +13,7 @@ Route::prefix('user')->name('user.')->group(function(){
 
 });
 
+Route::middleware(['auth:web'])->prefix('user')->name('.user')->group(function(){
+    Route::view('/dashboard' , 'user.dashboard')->name('dashboard');
+});
+
