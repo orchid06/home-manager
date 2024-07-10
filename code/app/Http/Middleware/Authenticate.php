@@ -5,22 +5,26 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Support\Facades\Auth;
 
 class Authenticate
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    protected function redirectTo($request)
+    public function handle(Request $request, Closure $next)
     {
-        if ($request->route()->name('admin') && ! $request->expectsJson()) {
-            return route('admin.login');
+        if ($request->route()->named('admin') && !$request->expectsJson()) {
+            return redirect()->route('admin.login');
         }
-        elseif($request->route()->name('user') && ! $request->expectsJson()) {
-            return route('user.login');
+        elseif ($request->route()->named('user') && !$request->expectsJson()) {
+            return redirect()->route('user.login');
         }
+
+        return $next($request);
     }
 }
+

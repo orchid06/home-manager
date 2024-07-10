@@ -11,10 +11,12 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-in-container blur">
-            <form action="#">
+            <form action="{{route('admin.authenticate')}}" method="POST">
+                @csrf
+
                 <h1>Admin</h1>
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
+                <input type="text" name="username" value="{{old('username')}}"  placeholder="Username" />
+                <input type="password" name="password" placeholder="Password" />
                 <a href="#">Forgot your password?</a>
                 <button>Login</button>
             </form>
