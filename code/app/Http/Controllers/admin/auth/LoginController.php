@@ -10,7 +10,6 @@ class LoginController extends Controller
 {
     public function authenticate(Request $request)
     {
-
         $credentials = $request->validate([
             'username' => ['required'],
             'password' => ['required'],
@@ -20,10 +19,12 @@ class LoginController extends Controller
         if (Auth::guard('admin')->attempt($credentials,$remember_me)) {
             $request->session()->regenerate();
             return redirect()->route('admin.dashboard');
+        }else{
+            return back()->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+            ]);
         }
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+
     }
 
     public function logout(Request $request) : \Illuminate\Http\RedirectResponse

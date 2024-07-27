@@ -9,10 +9,11 @@
 </head>
 
 <body>
+    
     <div class="container" id="container">
         <div class="form-container sign-in-container blur">
             <form action="{{route('admin.authenticate')}}" method="POST">
-                @csrf
+            @csrf
 
                 <h1>Admin</h1>
                 <input type="text" name="username" value="{{old('username')}}"  placeholder="Username" />
