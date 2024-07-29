@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    
+
     <div class="container" id="container">
         <div class="form-container sign-in-container blur">
             <form action="{{route('admin.authenticate')}}" method="POST">

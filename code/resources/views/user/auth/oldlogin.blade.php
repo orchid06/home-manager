@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <title> Home Manager </title>
+<html lang="en">
 
-    <link rel="stylesheet" href="{{asset('assets/frontend/style.css')}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{asset('assets/global/css/login.css')}}">
     <link rel="stylesheet" href="{{asset('assets/global/css/style.css')}}">
+    <title>Login</title>
+</head>
 
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
 <body>
-@include('errors.notify')
+    @include('errors.notify')
     <div class="container" id="container">
         <div class="form-container sign-up-container">
             <form action="{{route('user.register')}}" method="POST">
@@ -54,6 +52,7 @@
         </div>
     </div>
 </body>
+
 </html>
 
 <script>
