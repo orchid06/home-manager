@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="{{asset('assets/global/css/login.css')}}">
     <link rel="stylesheet" href="{{asset('assets/global/css/style.css')}}">
 
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
 <body>
@@ -55,7 +54,7 @@
     </div>
 </body>
 </html>
-
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
 <script>
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
