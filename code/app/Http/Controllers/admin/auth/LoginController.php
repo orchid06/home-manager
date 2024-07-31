@@ -12,19 +12,18 @@ class LoginController extends Controller
     {
         dd($request->all());
         $credentials = $request->validate([
-            'username' => ['required'],
-            'password' => ['required'],
+            'username'      => ['required'],
+            'password'      => ['required'],
         ]);
         $remember_me = $request->has('remember_me') ? true : false;
 
         if (Auth::guard('admin')->attempt($credentials,$remember_me)) {
             $request->session()->regenerate();
             return redirect()->route('admin.dashboard');
-        }else{
-            return back()->withErrors([
-                'email' => 'The provided credentials do not match our records.',
-            ]);
         }
+        return back()->withErrors([
+            'username' => 'The provided credentials do not match our records.',
+        ]);
 
     }
 

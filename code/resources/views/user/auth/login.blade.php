@@ -14,7 +14,7 @@
 @include('errors.notify')
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="{{route('user.register')}}" method="POST">
+            <form action="{{route('user.registration.submit')}}" method="POST">
                 @csrf
                 <h1>Create Account</h1>
                 <span>use your email for registration</span>
@@ -23,18 +23,18 @@
                 <input type="text" name="username" value="{{old('username')}}" placeholder="Set an unique user name" />
                 <input type="email" name="email" value="{{old('email')}}" placeholder="Email" />
                 <input type="password" name="password" placeholder="Password" />
-                <button type="submit">Sign Up</button>
+                <button>Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="{{route('user.login')}}" method="POST">
+            <form action="{{route('user.authenticate')}}" method="POST">
                 @csrf
 
                 <h1>Sign in</h1>
-                <input type="email" name="email" value="{{old('email')}}" placeholder="Email" />
+                <input type="email" name="email" value="{{old('email')}}" placeholder="Email" required/>
                 <input type="password" name="password" placeholder="Password" />
                 <a href="#">Forgot your password?</a>
-                <button type="submit">Sign In</button>
+                <button>Sign In</button>
             </form>
         </div>
         <div class="overlay-container">

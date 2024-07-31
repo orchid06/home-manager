@@ -14,11 +14,21 @@ Route::prefix('user')->name('user.')->group(function(){
 
     Route::view('/register' , 'user.auth.login' )->name('register');
     Route::view('/login', 'user.auth.login')->name('login');
-    Route::post('/auth' , [LoginController::class, 'authenticate'] )->name('autheticate');
+    Route::post('/auth' , [LoginController::class, 'authenticate'] )->name('authenticate');
+    Route::post('/registeration', [LoginController::class,'registrationSubmit'])->name('registration.submit');
 });
 
 //Auth User
+Route::middleware('auth')->group(function () {
 
+    //User Dashboard
+    Route::prefix('user')->name('user.')->group(function(){
+
+        Route::view('/dashboard' , 'user.dashboard')->name('dashboard');
+
+    });
+
+});
 
 
 
